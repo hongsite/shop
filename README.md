@@ -235,7 +235,7 @@ mysql -u root -p < sql/init.sql
 
 - 作者：牛头
 - 邮箱：506423665@qq.com
-- 官网：https://www.hongsite.com.com
+- 官网：https://www.hongsite.com
 - 微信号：hongsite
 
 ## 牛头 支持
