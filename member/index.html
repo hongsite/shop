@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>人员管理</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="/member/index.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/member/index.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($vo){
+
+<div class="gf-item">
+	<label class="gf-label">登录账号</label>
+	{if($id>0)}
+	<div class="field-value">{$truename}</div>
+	{else}	
+	<input type="text" name="username" value="{$username}" class="gf-input" placeholder="请输入真实姓名" autocomplete="off" />
+	{/if}
+	<div class="gf-error"></div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">身份证号</label>
+	<div class="field-value">{$idcard}</div>
+	<div class="gf-error"></div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">真实姓名</label>
+	<div class="field-value">{$truename}</div>
+	<div class="gf-error"></div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">微信昵称</label>
+	<input type="text" name="nickname" value="{$nickname}" class="gf-input" placeholder="微信昵称" autocomplete="off" />
+	<div class="gf-error"></div>
+</div>
+
+
+
+<div class="gf-item">
+	<label class="gf-label">顶级代理</label>
+	<span class="wide">				
+	<label class="switch">
+	<input type="checkbox" name="topagent" value="1" {if($topagent==1)}checked{/if} />
+	<div class="slider">
+		<span class="on-text">是</span>
+		<span class="thumb"></span>
+		<span class="off-text">否</span>
+	</div>
+	</label>
+	</span>	
+	<div class="gf-error"></div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">分销等级</label>
+	{$level|dics=###,level_list,'write'}
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">性别</label>
+	{$sex|dics=###,sexlist,'radio','sex'}
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">是否实名</label>
+	{$verifield|dics=###,verifield_list,'write'}
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">注册时间</label>
+	<div class="field-value">{$addtime|date=###,'Y-m-d H:i'}</div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">注册地址</label>
+	<div class="field-value">{$address}</div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">最近登录</label>
+	<div class="field-value">{$lasttime|date=###,'Y-m-d H:i'}</div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">登录地址</label>
+	<div class="field-value">{$lastaddress}</div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">账户余额</label>
+	<div class="field-value">{$balance|formatp=###}</div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">积分</label>
+	<div class="field-value">{$jifen}</div>
+</div>
+
+<div class="gf-item">
+	<label class="gf-label">优惠券</label>
+	<div class="field-value">{$coupon}</div>
+</div>
+
+
+
+
+<input type="hidden" name="id" value="{$id}" />
+}-->
+<!--foreach($list){
+<div class="member-card mylist" data-id="{$id}">
+	<div class="card-top">
+		<div class="avatar"><img src="{$wxface|getpicurl=###,0,'face','','face.png'}" /></div>
+		<div class="name-group">
+			<div class="member-name">{if($truename!='')}{$truename}{else}未填写{/if} <span class="nickname">{$nickname}</span></div>
+			<div class="member-account">账号：{$username}</div>
+		</div>		
+	</div>
+
+	<div class="card-info">
+		<div class="info-item">
+			<span class="info-text login-time">登录：{$addtime|date=###,'Y-m-d H:i'}</span>
+			<span class="tr">分销:{$level|dics=###,level_list,'write'}</span>
+		</div>
+		<div class="info-item flex">
+			<span class="flex-2">地址：{$address}</span>
+			<span class="flex-1 tr">顶级代理：{$topagent|dics=###,mainlist,'write'}</span>
+		</div>
+		<div class="info-item">
+			<span class="flex-2">实名：{$verifield|dics=###,verifield_list,'write'}</span>
+		</div>
+	</div>
+	<div class="card-actions">
+		<a href="javascript:;" class="btn-edit edit myedit" data-id="{$id}">编辑</a>
+		<a href="javascript:;" class="btn-delete delete mydelete" data-id="{$id}">删除</a>
+	</div>
+</div>
+}-->
+
+
+<!--foreach($wxlist){
+<li data-id="{$id}" data-nickname="{$nickname}" data-face="{$face}" class="{if($chooseid==$id)}cur{/if}"><div class="tc"><img src="{$face}" /></div><span class="">{$nickname}</span></li>
+}-->
+
+<!--moban-end-->
+
+<div id="openbox_choosehead" class="openboxs flex fdc aic jcc none" style="z-index:991;">
+	<div class="opensubbox">
+		<span class="hst-setwin"><a class="hst-ico hst-close1" href="javascript:;"></a></span>
+		<div class="openboxs-title">请选择一个微信</div>
+		<div class="openboxs-cont">
+		    <div class="wxlist">
+				<input type="text" value="" class="hst-input search w100" id="qs" placeholder="输入关键字搜索" /><button type="button" class="hst-btn hst-btn-xx searchbtn mr10" id="searchs">搜索</button>
+				<ul class="flex fww" id="wxlist"></ul>
+				<div class="tc mt10"><a href="javascript:;" id="choosesubmit" class="hst-btn hst-bg-green">确定</a></div>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+<div class="super-toolbar">	
+	<div class="mytabs" id="mytab">
+		<a href="javascript:;" class="cur" data-code="all">所有会员</a>
+		<a href="javascript:;" class="" data-code="topagent">顶级代理</a>
+		<a href="javascript:;" class="" data-code="level2">二级分销</a>
+		<a href="javascript:;" class="" data-code="level3">三级分销</a>
+		<a href="javascript:;" class="" data-code="level0">会员</a>
+	</div>
+	<!--添加按钮-->
+<div class="flex-1 fr addmenu">
+	<a href="javascript:;" class="hst-badge myedit add-btn" id="myadd" data-id="0"></a>
+</div>
+	
+	<div class="flex-2 tr">
+	<input type="text" value="" class="hst-input search w100" id="q" placeholder="输入关键字搜索" /><button type="button" class="hst-btn hst-btn-xx searchbtn" id="search">搜索</button>
+	<a href="javascript:;" id="refer">刷新</a>
+</div>
+
+</div>
+
+<div class="member-grid" id="tblist"></div>
+<div id="page" class="page"></div>
+<div id="nodata" class="nodata"></div>
+</div>
+<script src="/static/6.0.0.0/js/after_index_update.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/page.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/edit.js?v=0.63696876144968"></script>
+<!--底部-->
+</div></div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+
+</body>
+</html>

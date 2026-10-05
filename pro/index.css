@@ -1,0 +1,87 @@
+/*orders/index页面css*/
+.goods-container {
+display: grid;
+flex-wrap: wrap;
+grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+gap:0px 12px;
+
+}
+.stat{display:inline-block;}
+/* 商品卡片 */
+.goods-item {
+background: #ffffff;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+transition: all 0.3s ease;
+}
+.goods-img-box {
+width: 100%;
+height: 220px;
+background-color: #eee;
+}
+.goods-img-box img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.goods-info {
+padding:10px;padding-bottom:16px;
+}
+.goods-name {
+font-size: 16px;
+color: #222;
+margin-bottom: 10px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.goods-price {
+font-size: 20px;
+color: #e53935;
+font-weight: bold;
+margin-bottom: 8px;
+}
+.goods-stock, .goods-category {
+font-size: 14px;
+color: #666;
+margin-bottom: 6px;
+}
+/* 按钮区域 */
+.btn-wrap{
+    display: flex;
+    gap: 0px 10px;
+    width: 100%;margin-top:10px;
+}
+.btn-wrap a{
+    flex: 1;
+    text-align: center;
+    padding: 2px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.btn-wrap a:nth-of-type(2){margin:0px 10px;}
+.btn-wrap .edit{
+    border:1px solid #1677ff;
+    color: #1677ff;
+}
+.btn-wrap .edit:hover{
+    background-color: #e8f3ff;
+}
+.btn-wrap .xiajia{
+    border:1px solid #fa8c16;
+    color: #fa8c16;
+}
+.btn-wrap .xiajia:hover{
+    background-color: #fff4e5;
+}
+.btn-wrap .delete{
+    border:1px solid #f5222d;
+    color: #f5222d;
+}
+.btn-wrap .delete:hover{
+    background-color: #ffe9e9;
+}

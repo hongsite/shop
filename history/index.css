@@ -1,0 +1,19 @@
+html, body{
+height: 100%;
+width: 100%;
+}
+#container{width: 100%;
+height: -moz-calc(100% - 60px);height: -webkit-calc(100% - 60px);height: calc(100% - 60px);
+}
+.input-card .btn{
+margin-right: 1.2rem;
+width: 9rem;
+}
+
+.input-card .btn:last-child{
+margin-right: 0;
+}
+#choosebox{position:absolute;right:10px;top:50px;background:rgba(0,0,0,0.5);padding:5px 15px;}
+#choosebox p{line-height:25px;}
+#choosebox p a{color:#ccc;}
+#choosebox p a.active,#choosebox p a:hover{font-weight:bold;color:#fff;}

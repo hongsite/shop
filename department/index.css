@@ -1,0 +1,103 @@
+/*member/index页面css*/
+/* ---------- 部门网格 (一行多列) ---------- */
+.dept-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 20px;
+}
+
+/* ---------- 部门卡片 (扁平) ---------- */
+.dept-card {
+background: #ffffff;
+border: 1px solid #e2e8f0;
+border-radius: 8px;
+padding: 18px 20px 16px;
+display: flex;
+flex-direction: column;
+transition: background 0.15s;
+}
+.dept-card .card-top {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 10px;
+}
+
+.dept-card .dept-name {
+font-size: 18px;
+color: #0f172a;
+display: flex;
+align-items:center;
+gap: 8px;
+}
+
+.dept-card .dept-name i {
+font-size: 20px;margin-right:3px;
+}
+
+.dept-card .status-badge {
+font-size: 12px;
+font-weight: 600;
+padding: 2px 12px;
+border-radius: 4px;
+background: #e2e8f0;
+color: #1e293b;
+white-space: nowrap;
+}
+
+.dept-card .status-badge.active {
+background: #dcfce7;
+color: #166534;
+}
+
+.dept-card .status-badge.inactive {
+background: #fee2e2;
+color: #991b1b;
+}
+
+.dept-card .dept-meta {
+display: flex;
+flex-wrap: wrap;
+gap: 8px 20px;
+margin: 6px 0 12px;
+font-size: 14px;
+color: #475569;
+}
+
+.dept-card .dept-meta span {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.dept-card .dept-meta span:first-of-type{margin-right:20px;}
+.dept-card .dept-meta span i{margin-right:3px;}
+.dept-card .dept-meta .meta-icon {
+color: #94a3b8;
+font-size: 14px;
+}
+
+.dept-card .dept-desc {
+font-size: 14px;
+color: #64748b;
+line-height: 1.5;
+margin-bottom: 14px;
+flex: 1;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.dept-card .card-actions {
+display: flex;
+justify-content: flex-end;
+gap: 4px;
+border-top: 1px solid #f1f5f9;
+padding-top: 12px;
+margin-top: auto;
+}
+
+.dept-card .card-actions .btn {
+font-size: 12px;
+padding: 4px 12px;
+}

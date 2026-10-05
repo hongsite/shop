@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>注册</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<link rel="stylesheet" type="text/css" href="/static/default/pc/skins/login1.css?v=0.63696876144968" />
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/static/js/login.js?v=0.63696876144968"></script>
+<link rel="stylesheet" type="text/css" href="/login/reg.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/login/reg.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="loginbox" id="loginbox">
+	<div class="flex aic stretch">
+		<div class="flex-2 side">		    
+			<!--<dd>领先的数据分析算法</dd>
+			<dd>定制的私有化数据湖</dd>
+			<dd>数字化运营驱动技术</dd>
+			<dd>给用户最贴心的服务</dd>-->
+			<h1 class="h1">站点名称</h1>
+			<img src="/static/images/shop/loginch.png" class="loginch">
+		</div>
+		<div class="flex-3">
+			<div class="loginmain">
+			<form name="myform" id="myform" method="post" action="">
+			<input type="hidden" name="verify" value="" />
+			<div class="logintitle">注册</div>
+			<ul class="">
+			<li class="mobile"><input name="username" type="number" value="" placeholder="请输入手机号"  /></li>
+			<!--<li class="code"><input name="mobileCode" value="" placeholder="请输入验证码" /><a href="javascript:;" class="sendmsg" id="sendmsg_reg">发送验证码</a></li>-->
+			<li class="password"><input name="password" type="password" value="" placeholder="请设置登录密码" /></li>
+			<!--<li class="saler"><input name="salerid" type="number" value="" placeholder="销售人员ID(选填)"  /></li>-->
+			<li class="code">
+				<span class="safe" id="verify_login">点击完成验证</span>
+			</li>
+			</ul>
+			<div>
+			<div class="flex padtb10">
+				<div class="flex-1"><a href="/login/" class="">已有账号，马上<span class="loginbtn">登录</span></a></div>
+				<div class="flex-1 tr"><a href="/login/forget.html" class="">忘记密码</a></div>
+			</div>
+			<div class=""><button type="button" class="hst-btn w100b mart10" id="dobtnreg">立即注册</button></div>
+			</div>
+			</form>
+			</div>
+			<div class="logincopyright">Copyright@2024-2034 站点名称 All Rights Reserved</div>
+		</div>
+	</div>
+</div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+</body></html>

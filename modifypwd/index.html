@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>修改密码</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/static/6.0.0.0/js/edit.js?v=0.63696876144968"></script>
+<link rel="stylesheet" type="text/css" href="/modifypwd/index.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/modifypwd/index.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($vo){
+<div class="account-info">
+<span class="account-info-title">当前登录账号</span>
+
+
+<div class="info-row">
+<span class="info-label icon-user">用户名</span>
+<span class="info-value">{$username}</span>
+</div>
+
+
+<div class="info-row">
+<span class="info-label icon-name">真实姓名</span>
+<span class="info-value highlight">{$truename}</span>
+</div>
+
+
+<div class="info-row">
+<span class="info-label icon-time">最后登录</span>
+<span class="info-value time">{$addtime|date=###,'Y-m-d H:i'}</span>
+</div>
+</div>
+
+
+<div class="header">
+<h1>修改登录密码</h1>
+<div class="sub">为了账户安全，请定期更新密码</div>
+</div>
+
+<hr class="divider">
+
+
+<form id="passwordForm" novalidate="">
+
+<div class="form-group">
+<label>当前密码</label>
+<div class="input-wrapper">
+<input type="password" name="oldpassword" placeholder="输入当前使用的密码" autocomplete="current-password">
+</div>
+
+</div>
+
+
+<div class="form-group">
+<label>新密码</label>
+<div class="input-wrapper">
+<input type="password" name="password" placeholder="设置新的密码" autocomplete="new-password">
+</div>
+
+<div class="password-hint"><i class="iconfont icon-mima"></i>密码需至少8个字符，包含字母和数字</div>
+</div>
+
+
+<div class="form-group">
+<label>确认新密码</label>
+<div class="input-wrapper">
+<input type="password" name="password1" placeholder="再次输入新密码" autocomplete="new-password">
+</div>
+
+</div>
+
+
+<button type="button" class="btn-submit" id="modifybtn">
+<span>更新密码</span>
+</button>
+
+
+</form> 
+}-->
+<!--moban-end-->
+
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+
+<div class="card" id="tbedit"></div> 
+
+<!--底部-->
+</div></div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+
+</body>
+</html>

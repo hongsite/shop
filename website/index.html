@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>系统设置</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="/website/index.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/website/index.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($vo){
+
+<div class="flex-1">
+
+	<div class="section-title"><i class="iconfont icon-houtai"></i>基本信息<span class="badge">必填</span></div>
+
+	<div class="form-group">
+		<label class="form-label">
+			<span class="required">*</span> 系统名称
+			<span class="desc">系统总名称</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control" placeholder="请输入系统名称" value="{$website}" name="website">
+			<div class="help-text">建议 2~20 个字符</div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="form-label"">
+			<span class="required">*</span> 网站地址
+			<span class="desc">前端访问入口</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="url" class="form-control" placeholder="https://www.example.com" value="{$url}" name="url">
+			<div class="help-text">请以 <span class="highlight">http://或https://</span> 开头</div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="form-label">备案号码<span class="desc">ICP 备案号</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" id="icp" class="form-control" placeholder="例如：京ICP备 12345678 号" value="{$beian}" name="beian" />
+			<div class="help-text">非必填，按监管要求填写</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="form-label">分销设置<span class="desc">总开关</span>
+		</label>
+		<div class="form-control-wrap">
+			{$agentstat|dics=###,mainlist,'radio','agentstat'}
+			<div class="help-text">关闭后将不开启分销</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="form-label">是否弹窗<span class="desc">弹窗开关</span>
+		</label>
+		<div class="form-control-wrap">
+			{$isopen|dics=###,mainlist,'radio','isopen'}
+			<div class="help-text">关闭后弹窗失效</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="form-label">是否公告<span class="desc">公告开关</span>
+		</label>
+		<div class="form-control-wrap">
+			{$isgonggao|dics=###,mainlist,'radio','isgonggao'}
+			<div class="help-text">关闭后不显示公告</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="form-label" for="payKey">
+			<span class="required"></span>公告内容
+			<span class="desc">如开启不能为空</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="公告内容" value="{$gonggao}" name="gonggao" />
+			<div class="help-text">首页公告</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label" for="payKey">
+			<span class="required"></span>短信APPID
+			<span class="desc">短信发送设置</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="短信appid" value="{$msgappid}" name="msgappid" />
+			<div class="help-text">阿里云短信平台</div>
+		</div>
+	</div>
+</div>
+<div class="flex-1">
+	<div class="section-title"><i class="iconfont icon-weixinzhifu"></i>支付配置<span class="badge">敏感信息</span></div>
+
+
+	<div class="form-group">
+		<label class="form-label" for="appId">
+			<span class="required">*</span> AppID
+			<span class="desc">微信应用ID</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" id="appId" class="form-control form-control--code" placeholder="请输入 AppID" value="{$wx_appid}" name="wx_appid" />
+			<div class="help-text">微信AppID</div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="form-label" for="appSecret">
+			<span class="required">*</span> AppSecret
+			<span class="desc">应用密钥</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="请输入 AppSecret" value="{$wx_appsecret}" name="wx_appsecret" />
+			<div class="help-text">请妥善保管，切勿泄露</div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="form-label" for="mchId">
+			<span class="required">*</span> 商户号
+			<span class="desc">MCHID</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="请输入商户号" value="{$wx_mchid}" name="wx_mchid" />
+			<div class="help-text">微信支付商户号或支付宝商户号</div>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="form-label">
+			<span class="required">*</span> 支付密钥
+			<span class="desc">PayKey / APIv2 密钥</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="请输入支付密钥" value="{$wx_paykeys}" name="wx_paykeys" />
+			<div class="help-text">建议 32 位以上，大小写字母+数字</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label">
+			<span class="required"></span> 弹窗图片
+			<span class="desc">弹窗显示的图片</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="弹窗图片地址" value="{$openpicurl}" name="openpicurl" />
+			<div class="help-text">首页弹窗图片</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label" for="payKey">
+			<span class="required"></span>弹窗链接
+			<span class="desc">链接地址</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="弹窗的链接地址" value="{$openurl}" name="openurl" />
+			<div class="help-text">弹窗的链接地址</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label" for="payKey">
+			<span class="required">其它设置</span>
+			<span class="desc">其它设置</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="" value="" name="" />
+			<div class="help-text">其它设置</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label" for="payKey">
+			<span class="required"></span>短信KEY
+			<span class="desc">短信KEY</span>
+		</label>
+		<div class="form-control-wrap">
+			<input type="text" class="form-control form-control--code" placeholder="短信key" value="{$msgkey}" name="msgkey" />
+			<div class="help-text">阿里云短信平台的key</div>
+		</div>
+	</div>
+
+	
+</div>
+
+}-->
+<!--moban-end-->
+
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+<div class="super-toolbar">	
+	<div class="mytabs" id="mytab">
+		<a href="javascript:;" class="cur" data-code="all">系统设置</a>
+	</div>
+</div>
+
+<div class="settings-body">
+	<form id="myform" method="post" name="myform">
+		<div class="flex" id="tbedit"></div>		
+		<div class="tc mart10"><button type="button" class="hst-btn" id="mysubmit">保存设置</button></div>
+	</form>
+</div>
+
+
+<!--底部-->
+</div></div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+
+<script src="/static/6.0.0.0/js/edit.js?v=0.63696876144968"></script>
+</body>
+</html>
+
+
+

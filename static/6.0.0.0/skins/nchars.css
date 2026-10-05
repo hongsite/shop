@@ -1,0 +1,149 @@
+/* nchars.css - 柱状图样式（刻度可见、数值显示） */
+@-webkit-keyframes animate-height {
+  0% { height: 0; }
+  100% { visibility: visible; }
+}
+@-moz-keyframes animate-height {
+  0% { height: 0; }
+  100% { visibility: visible; }
+}
+@keyframes animate-height {
+  0% { height: 0; }
+  100% { visibility: visible; }
+}
+
+.bar-chart {
+  width: 100%;
+  position: relative;
+  font-family: arial, sans-serif;
+  color: #fff;
+  /* 为左侧刻度预留空间 */
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.bar-chart h5 {
+  text-align: center;
+  padding: 16px 0 10px;
+  margin: 0;
+  font-size: 1rem;
+  color: #cecfd3;
+  font-weight: normal;
+}
+.bar-chart * {
+  box-sizing: border-box;
+}
+.bar-chart .graph {
+  position: relative;
+  margin-bottom: 30px;
+}
+.bar-chart .bars {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+.bar-chart .bar-group {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+.bar-chart .bar-group .bar {
+  display: inline-block;
+  width: 12px;                 /* 固定宽度，可配置 */
+  margin: 0 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #666;
+  border-radius: 2px 2px 0 0;
+  background-clip: padding-box;
+  -webkit-animation: animate-height 0.4s cubic-bezier(0.35, 0.95, 0.67, 0.99) forwards;
+  -moz-animation: animate-height 0.4s cubic-bezier(0.35, 0.95, 0.67, 0.99) forwards;
+  animation: animate-height 0.4s cubic-bezier(0.35, 0.95, 0.67, 0.99) forwards;
+  height: 0;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+/* 柱顶数值标签 - 始终可见 */
+.bar-chart .bar-group .bar span {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #333;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 4px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  pointer-events: none;
+  z-index: 20;
+  font-weight: bold;
+}
+/* 柱子颜色组 */
+.bar-chart .stat-1 { background-image: linear-gradient(to right, #b8f123 0%, #b8f123 47%, #79a602 50%, #79a602 100%); opacity: 0.85; }
+.bar-chart .stat-2 { background-image: linear-gradient(to right, #ff4500 0%, #ff4500 47%, #cf3a02 50%, #cf3a02 100%); opacity: 0.85; }
+.bar-chart .stat-3 { background-image: linear-gradient(to right, #00c5ff 0%, #00c5ff 47%, #0383a9 50%, #0383a9 100%); opacity: 0.85; }
+.bar-chart .stat-4 { background-image: linear-gradient(to right, #ffcc00 0%, #ffcc00 47%, #b38f00 50%, #b38f00 100%); opacity: 0.85; }
+.bar-chart .stat-5 { background-image: linear-gradient(to right, #ff66cc 0%, #ff66cc 47%, #b2448c 50%, #b2448c 100%); opacity: 0.85; }
+/* X轴 */
+.bar-chart .x-axis {
+  bottom: -24px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  display: flex;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bar-chart .x-axis li {
+  flex: 1;
+  font-size: 11px;
+  color: #333;
+  text-align: center;
+}
+.bar-chart .x-axis span {
+  display: block;
+  font-size: 12px;
+  color: #333;
+  word-break: keep-all;margin-bottom:3px;
+}
+/* Y轴 - 左侧刻度，确保可见 */
+.bar-chart .y-axis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: transparent;
+}
+.bar-chart .y-axis li {
+  border-top: 1px solid #f2f2f2;
+  position: relative;
+  width: 100%;
+}
+.bar-chart .y-axis li span {
+  font-size: 10px;
+  padding: 0 4px;
+  position: absolute;
+  left: 0;
+  top: -8px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  white-space: nowrap;
+  line-height: 1.2;
+}

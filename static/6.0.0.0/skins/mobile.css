@@ -1,0 +1,57 @@
+.filelist{padding:20px 10px;}
+.filelist,.filelist a,.filelist img{vertical-align:middle;}
+.filelist a{display:inline-block;position:relative;
+width:46%;
+margin-right:8%;margin-bottom:20px;
+}
+.filelist a:nth-child(2n){margin-right:0;}
+.filelist a div{display:inline-block;border:1px solid #eee;padding:3px;
+line-height:140px;text-align:center;
+overflow: hidden;}
+.filelist img{width:100%;}
+.filelist a span{
+display: inline-block;    
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #bbb;
+    background: #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 2;
+    font-weight: 400;
+	margin-left:2px;
+	top:-9px;right:0;
+	position:absolute;z-index:2;
+}
+.filelist img.addfile{width:24px;height:24px;border:none;padding:0;margin:0 auto;}
+
+input::placeholder {
+  color: #cccccc;
+  opacity: 1; /* 关键：修复 Firefox 默认将透明度设为 0.4 的问题 */
+}
+
+/* WebKit 内核 (Chrome, Safari, Edge 旧版) */
+input::-webkit-input-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+
+/* Firefox 旧版 (19-50) */
+input::-moz-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+
+/* Internet Explorer 10-11 和 Edge 旧版 */
+input:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+/* 微软 Edge 旧版 (12-18) */
+input::-ms-input-placeholder {
+  color: #cccccc;
+}

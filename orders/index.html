@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>销售订单-站点名称</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="/orders/index.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/orders/index.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($list){
+<div class="order-card" data-id="{$id}">
+  <div class="order-header">
+    <div class="order-meta">
+      <div class="order-no"><span>单号：{$ordid}</span><span class="ml20">{$stat|dics=###,statlist,'write'}</span></div>
+    </div>
+    <div class="order-total">
+      <span class="price">¥{$payprice|formatp=###}</span>
+    </div>
+  </div>  
+  <div class="detail-section">
+    <table class="detail-table">
+      <header>
+        <tr>
+          <th width="50">预览图</th>
+		  <th>商品名称</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小计</th>
+        </tr>        
+      </header>
+	  <tbody class="listdetail"></tbody>
+    </table>
+  </div>
+
+  
+  <div class="order-footer aic">
+    <span class="flex-1">{$addtime|date=###,'Y-m-d H:i'}</span>
+	<span class="flex-3 tr">
+	<button class="hst-btn hst-btn-primary hst-btn-ml">订单明细</button>
+	{if($stat==1)}
+	<button class="hst-btn hst-btn-blue hst-btn-ml">发货</button>
+	{/if}
+	</span>
+  </div>
+</div>
+
+
+}-->
+<!--foreach($listdetail){
+<tr class="{if($key>1)}none{/if}">
+<td class="col-image"><img src="{$picurl|getpicurl=###,0,'','90'}"  class="previewml" /></td>
+<td class="col-name">{$title}{if($sku!='')}<br /><span class="sku">{$sku}</span>{/if}</td>
+<td class="col-price">¥{$price|formatp=###}</td>
+<td class="col-qty">×{$quantity|formatpno=###,0}</td>
+<td class="col-subtotal">¥{$price*$quantity|formatp=###}</td>
+</tr>
+}-->
+<!--foreach($vo){
+
+<div class="flex fww detailbox">
+<div class="summary-row">
+  <label>订单编号：</label>
+  <span>{$ordid}</span>
+</div>
+<div class="summary-row">
+  <label>订单类型：</label>
+  <span>{$tid}</span>
+</div>
+<div class="summary-row">
+  <label>实付金额：</label>
+  <span class="price">￥{$payprice|formatp=###}</span>
+</div>
+<div class="summary-row">
+  <label>商品总价：</label>
+  <span class="price">￥{$allprice|formatp=###}</span>
+</div>
+<div class="summary-row">
+  <label>运费：</label>
+  <span>￥{$shipping|formatp=###}</span>
+</div>
+<div class="summary-row">
+  <label>优惠金额：</label>
+  <span>￥{$youhui|formatp=###}</span>
+</div>
+<div class="summary-row">
+  <label>下单时间：</label>
+  <span>{$addtime|date=###,'Y-m-d H:i'}</span>
+</div>
+<div class="summary-row">
+  <label>付款时间：</label>
+  <span>{$paytime|date=###,'Y-m-d H:i'}</span>
+</div>
+<div class="summary-row">
+  <label>订单状态：</label>
+  <span class="status_success">已完成</span>
+</div>
+<div class="summary-row">
+  <label>支付方式：</label>
+  <span><span class="paytype_weixin">微信支付</span></span>
+</div>
+<div class="summary-row">
+  <label>收件人：</label>
+  <span>{$truename}</span>
+</div>
+<div class="summary-row">
+  <label>联系电话：</label>
+  <span>{$mobile}</span>
+</div>
+<div class="summary-row summary-full">
+  <label>收货地址：</label>
+  <span>{$province} {$city} {$county} {$address}</span>
+</div>
+<div class="summary-row summary-full">
+  <label>备注信息：</label>
+  <span>{$remark}</span>
+</div>
+</div>
+<table class="detail-table" id="detail">
+<thead>
+  <tr>
+	<th class="tl">预览图</th>
+	<th class="tl">商品名称</th>
+	<th class="tr">单价</th>
+	<th class="tr">数量</th>
+	<th class="tr">小计</th>
+  </tr>
+</thead>
+<tbody></tbody>
+</table>
+
+}-->
+<!--moban-end-->
+
+<div id="openbox_detail" class="openboxs flex fdc aic jcc none">
+	<div class="opensubbox">
+		<span class="hst-setwin"><a class="hst-ico hst-close1" href="javascript:;"></a></span>
+		<div class="openboxs-title">订单明细</div>
+		<div class="openboxs-cont" id="tbedit"></div>
+	</div>
+</div>
+
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+	<div class="super-toolbar">	
+	<div class="mytabs" id="mytab">
+		<a href="javascript:;" class="cur" data-code="all">所有订单</a>
+		<a href="javascript:;" data-code="payed">已支付</a>
+		<a href="javascript:;" data-code="waitPay">未支付</a>
+		<a href="javascript:;" data-code="refund">已退款</a>
+		<a href="javascript:;" data-code="waitSh">待收货</a>
+		<a href="javascript:;" data-code="success">交易完成</a>
+		<a href="javascript:;" data-code="cancel">已取消</a>
+		<a href="javascript:;" data-code="close">交接易关闭</a>
+		
+	</div>
+	<div class="flex-2 tr">
+	<input type="text" value="" class="hst-input search w100" id="q" placeholder="输入关键字搜索" /><button type="button" class="hst-btn hst-btn-xx searchbtn" id="search">搜索</button>
+	<a href="javascript:;" id="refer">刷新</a>
+</div>
+
+</div>
+
+
+<div class="order-grid" id="tblist"></div>
+
+<div class="nodata" id="nodata"></div>
+<div class="page" id="page"></div>
+<script src="/static/6.0.0.0/js/after_index_update.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/page.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/edit.js?v=0.63696876144968"></script>
+
+
+<!--底部-->
+</div></div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+
+</body>
+</html>

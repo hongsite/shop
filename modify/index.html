@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>个人资料</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="/modify/index.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/modify/index.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($vo){
+<section class="card">
+  <div class="card-head">
+	<h2>账号信息</h2>
+	<span class="tag tag-gray">系统记录 · 不可修改</span>
+  </div>
+
+  <div class="info-grid">
+	<div class="info-item">
+	  <div class="label">登录账号</div>
+	  <div class="value mono">{$username}</div>
+	</div>
+	<div class="info-item">
+	  <div class="label">注册时间</div>
+	  <div class="value">{$addtime|date=###,'Y-m-d H:i'}</div>
+	</div>
+	<div class="info-item">
+	  <div class="label">最后登录时间</div>
+	  <div class="value">{$lasttime|date=###,'Y-m-d H:i'}</div>
+	</div>
+	<div class="info-item">
+	  <div class="label">注册地址</div>
+	  <div class="value">{$address} · {$ip}</div>
+	</div>
+	<div class="info-item">
+	  <div class="label">最后登录地址</div>
+	  <div class="value">{$lastaddress} · {$lastip}</div>
+	</div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-head">
+	<h2>基本资料</h2>
+  </div>
+
+  
+  <div class="avatar-field">
+	<div class="avatar-wrap">
+	  <img id="avatarPreview" alt="头像" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%20viewBox%3D%220%200%20160%20160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23e8edf7%22%2F%3E%3Ccircle%20cx%3D%2280%22%20cy%3D%2262%22%20r%3D%2226%22%20fill%3D%22%23b6c2d9%22%2F%3E%3Cpath%20d%3D%22M28%20142c6-30%2027-44%2052-44s46%2014%2052%2044z%22%20fill%3D%22%23b6c2d9%22%2F%3E%3C%2Fsvg%3E">
+	</div>
+	<div class="avatar-tip">
+	  <button type="button" class="btn sm" id="uploadBtn">更换头像</button>
+	  <button type="button" class="btn sm" id="removeAvatar">恢复默认</button>
+	  <p>支持 JPG / PNG 格式，大小不超过 2MB，建议尺寸 200 × 200</p>
+	</div>
+	<input type="file" id="avatarInput" accept="image/*" hidden="">
+  </div>
+
+  <div class="form-grid">
+	<div class="field">
+	  <label>真实姓名</label>
+	  <input name="truename" type="text" value="{$truename}" maxlength="20" placeholder="请输入真实姓名" class="w200" />
+	  <span class="err-msg"></span>
+	</div>
+
+	<div class="field">
+	  <label >昵称 <em>*</em></label>
+	  <input name="nickname" type="text" value="{$nickname}" maxlength="20" placeholder="请输入昵称" class="w200" />
+	  <span class="err-msg"></span>
+	</div>
+
+	<div class="field">
+	  <label>性别</label>
+	  <div class="radio">
+		    {$sex|dics=###,sexlist,'radio','sex'}
+	  </div>
+	</div>
+
+	<div class="field">
+	  <label>出生日期</label>
+	  <input name="birthday" type="text" value="{$birthday}" class="w200" />
+	  <span class="err-msg"></span>
+	</div>        
+
+	<div class="field">
+	  <label>电子邮箱</label>
+	  <input name="email" type="email" value="{$email}" placeholder="请输入电子邮箱" class="w200" />
+	  <span class="err-msg"></span>
+	</div>
+
+	<div class="field field-full">
+	  <label>个性签名</label>
+	  <textarea name="bio" maxlength="100" placeholder="介绍一下自己吧～">{$bio}</textarea>
+	  <div class="field-foot"><span class="counter">10/100</span></div>
+	</div>
+  </div>
+</section>
+
+<div class="actions tc">
+  <button type="button" class="btn primary" id="mysubmit">保存修改</button>
+</div>
+}-->
+<!--moban-end-->
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+<div class="modifybox">
+	<header class="page-head">
+	<h1>个人资料</h1>
+	<p>查看账号信息，维护你的个人资料</p>
+	</header>
+
+	<form id="myform" method="post">
+	<div id="tbedit"></div>    
+	</form>
+</div>
+<script src="/static/6.0.0.0/js/edit.js?v=0.63696876144968"></script>
+<!--底部-->
+</div></div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+
+</body>
+</html>

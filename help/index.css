@@ -1,0 +1,53 @@
+/*member/index页面css*/
+.choosebox{width:500px;}
+.headlist ul{
+  display: flex;
+  flex-wrap: wrap;
+  min-height: auto;  
+  list-style: none;
+  margin-top:10px;
+}
+
+.headlist ul li {
+  cursor: pointer;
+  list-style: none;margin-top:10px;
+  width:95px;
+  margin-right:3.25%;
+}
+
+.headlist ul li:nth-of-type(5n){margin-right:0;}
+.headlist ul li span {
+  display: inline-block;
+  padding: 5px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px; /* 微微圆角，保留边框感 */
+  color: #2d3748;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  user-select: none;
+}
+
+.headlist ul li:not(.cur) span:hover {
+  background: #f7fafc;
+  border-color: #a0aec0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.headlist ul li:active span {
+  transform: scale(0.96);
+}
+
+.headlist ul li.cur span {
+  background: #009688;
+  border-color: #009688;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 150, 136, 0.25);
+}
+
+.headlist ul li.cur span:hover {
+  background: #007b6e;
+  border-color: #007b6e;
+}

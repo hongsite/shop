@@ -1,0 +1,174 @@
+/*orders/index页面css*/
+/* ===== 卡片网格 ===== */
+.grid-container {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 24px;
+margin-top: 4px;
+}
+
+/* ===== 焦点图卡片 ===== */
+.focus-card {
+background: #fff;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+display: flex;
+flex-direction: column;
+position: relative;
+border: 1px solid #f0f0f0;
+}
+
+.focus-card .card-image {
+position: relative;
+width: 100%;
+padding-top: 56.25%;
+/* 16:9 */
+background: #f5f7fa;
+overflow: hidden;
+cursor: pointer;
+}
+
+.focus-card .card-image img {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.4s ease;
+}
+
+.focus-card:hover .card-image img {
+transform: scale(1.03);
+}
+
+.focus-card .card-image .image-placeholder {
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #bcc3ce;
+background: #f5f7fa;
+font-size: 14px;
+gap: 8px;
+}
+.focus-card .card-image .image-placeholder i {
+font-size: 42px;
+opacity: 0.4;
+}
+
+.focus-card .card-body {
+padding: 18px 20px 20px;
+flex: 1;
+display: flex;
+flex-direction: column;
+}
+
+.focus-card .card-title {
+font-size: 16px;
+font-weight: 600;
+color: #1d2129;
+margin-bottom: 8px;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+overflow: hidden;
+line-height: 1.5;
+}
+
+.focus-card .card-url {
+font-size: 13px;
+color: #86909c;
+display: flex;
+align-items: center;
+gap: 6px;
+margin-bottom: 14px;
+word-break: break-all;
+background: #f7f8fa;
+padding: 6px 12px;
+border-radius: 8px;
+font-family: 'SF Mono', monospace;
+}
+.focus-card .card-url i {
+color: #4e6af3;
+font-size: 12px;
+flex-shrink: 0;
+}
+.title-input{
+   width: 100%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    padding:6px 6px;
+}
+.card-url input{width:100%;padding:0;margin:0;background:none;}
+.focus-card .card-meta {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: auto;
+padding-top: 14px;
+border-top: 1px solid #f0f2f5;
+font-size: 13px;
+color: #86909c;
+}
+
+.focus-card .card-meta .time {
+display: flex;
+align-items: center;
+gap: 4px;
+}
+
+.focus-card .card-actions {
+display: flex;
+gap: 6px;
+}
+
+.focus-card .card-actions .btn {
+padding: 6px 12px;
+font-size: 13px;
+border-radius: 8px;
+}
+
+/* 状态标签 */
+.status-tag {
+display: inline-block;
+padding: 2px 12px;
+border-radius: 12px;
+font-size: 12px;
+font-weight: 500;
+background: #e8f5e9;
+color: #00b42a;
+}
+.status-tag.inactive {
+background: #fef0f0;
+color: #f53f3f;
+}
+
+/* ===== 空状态 ===== */
+.empty-state {
+grid-column: 1 / -1;
+text-align: center;
+padding: 80px 20px;
+background: #fff;
+border-radius: 20px;
+border: 2px dashed #e5e8ef;
+}
+.empty-state i {
+font-size: 64px;
+color: #c9d0db;
+margin-bottom: 20px;
+}
+.empty-state h3 {
+font-size: 20px;
+color: #4e5a6a;
+margin-bottom: 8px;
+}
+.empty-state p {
+color: #86909c;
+font-size: 15px;
+}

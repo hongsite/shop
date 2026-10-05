@@ -1,0 +1,12 @@
+/*通用css*/
+body{font-size:14px;}
+.menu-left-logo{width:48px;margin:10px 0 0 52px;}
+#tbedit tr td{border-bottom:1px solid #f2f2f2;}
+span.tit {
+    color: #666;position:relative;display:inline-block;
+}
+span.tit:after{content:'：';}
+
+.preview{width:60px;}
+.upimg li{padding:3px;border:1px solid #ccc;float:left;position:relative;border-radius:6px;}
+.upimg li:not(:last-of-type){margin-right:30px;}

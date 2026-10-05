@@ -1,0 +1,71 @@
+/*member/index页面css*/
+body{background-color: #f5f7fa;}
+.package-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+gap: 20px;
+}
+.card {
+background: #ffffff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.card h4 {
+font-size: 17px;
+margin-bottom: 8px;
+}
+.desc {
+font-size: 13px;
+color: #666;
+margin-bottom: 12px;
+}
+.price {
+font-size: 20px;
+color: #e53e3e;
+font-weight: bold;
+margin-bottom: 12px;
+}
+.item-row {
+font-size: 14px;
+color: #444;
+margin-bottom: 6px;
+}
+.tag-on {
+display: inline-block;
+background-color: #10b981;
+color: #fff;
+font-size: 12px;
+padding: 2px 8px;
+border-radius: 3px;
+}
+.tag-off {
+display: inline-block;
+background-color: #ef4444;
+color: #fff;
+font-size: 12px;
+padding: 2px 8px;
+border-radius: 3px;
+}
+.btn-group {
+margin-top: 16px;
+display: flex;
+gap:10px;
+}
+.btn-edit, .btn-del {
+flex: 1;
+padding:6px 0;
+border-radius:4px;
+border: 1px solid;
+cursor: pointer;
+}
+.btn-edit {
+border-color:#2563eb;
+color:#2563eb;
+background:#fff;
+}
+.btn-del {
+border-color:#ef4444;
+color:#ef4444;
+background:#fff;
+}

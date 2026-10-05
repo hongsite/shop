@@ -1,0 +1,222 @@
+/*member/index页面css*/
+.settings-body {
+padding:20px 10px;
+}
+
+/* ===== 表单分组 ===== */
+.form-group {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+padding-bottom: 10px;
+border-bottom: 1px solid #f2f4f7;
+}
+
+.form-group:last-of-type {
+border-bottom: none;
+margin-bottom: 0;
+padding-bottom: 0;
+}
+
+.form-label {
+width: 140px;
+flex-shrink: 0;
+padding-top: 8px;
+font-size: 15px;
+font-weight: 500;
+color: #1d2129;
+letter-spacing: 0.3px;
+}
+
+.form-label .required {
+color: #f53f3f;
+margin-right: 2px;
+}
+
+.form-label .desc {
+display: block;
+font-weight: 400;
+font-size: 12px;
+color: #86909c;
+margin-top: 2px;
+}
+
+.form-control-wrap {
+flex: 1;
+min-width: 0;
+}
+.form-control-wrap em{height:25px;margin-top:10px;}
+.form-control {
+width: 100%;
+max-width: 400px;
+padding: 6px 14px;
+font-size: 14px;
+line-height: 1.5;
+color: #1d2129;
+background: #f7f8fa;
+border: 1px solid #d9dde3;
+border-radius: 8px;
+transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+outline: none;
+font-family: inherit;
+}
+
+.form-control:focus {
+border-color: #4f6ef7;
+background: #fff;
+box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.12);
+}
+
+.form-control::placeholder {
+color: #b3b9c4;
+font-size: 13px;
+}
+
+.form-control--readonly {
+background: #f0f2f5;
+color: #4e5969;
+cursor: not-allowed;
+}
+
+.form-control--code {
+font-family: "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
+letter-spacing: 0.2px;
+}
+
+/* ===== 辅助提示 ===== */
+.help-text {
+font-size: 13px;
+color: #86909c;
+margin-top: 6px;
+line-height: 1.5;
+}
+
+.help-text .highlight {
+color: #4f6ef7;
+font-weight: 500;
+}
+
+/* ===== 分割线（视觉分组） ===== */
+.section-divider {
+height: 1px;
+background: #e8ecf1;
+margin: 32px 0 28px 0;
+}
+
+.section-title {
+font-size: 16px;
+font-weight: 600;
+color: #1d2129;
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.section-title i{color:green;margin-right:6px;font-size:18px;}
+.section-title .badge {
+font-size: 12px;
+font-weight: 400;
+background: #e8ecf1;
+color: #4e5969;
+padding: 0 10px;
+border-radius: 12px;
+line-height: 22px;margin-left:6px;
+}
+
+/* ===== 底部按钮 ===== */
+.form-actions {
+margin-top: 36px;
+padding-top: 24px;
+border-top: 1px solid #e8ecf1;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 10px 32px;
+font-size: 15px;
+font-weight: 500;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+text-decoration: none;
+letter-spacing: 0.3px;
+font-family: inherit;
+min-width: 100px;
+}
+
+.btn:active {
+transform: scale(0.97);
+}
+
+.btn-primary {
+background: #4f6ef7;
+color: #fff;
+box-shadow: 0 2px 8px rgba(79, 110, 247, 0.25);
+}
+
+.btn-primary:hover {
+background: #3a5ae7;
+box-shadow: 0 4px 14px rgba(79, 110, 247, 0.35);
+}
+
+.btn-primary:focus-visible {
+outline: 2px solid #4f6ef7;
+outline-offset: 2px;
+}
+
+.btn-secondary {
+background: #f2f3f5;
+color: #4e5969;
+}
+
+.btn-secondary:hover {
+background: #e5e7eb;
+}
+
+.btn-secondary:focus-visible {
+outline: 2px solid #d9dde3;
+outline-offset: 2px;
+}
+
+/* ===== 状态提示 ===== */
+.toast-message {
+display: none;
+margin-left: 20px;
+font-size: 14px;
+color: #00b42a;
+align-items: center;
+gap: 6px;
+}
+
+.toast-message.show {
+display: inline-flex;
+}
+
+.toast-message .check {
+display: inline-block;
+width: 18px;
+height: 18px;
+background: #00b42a;
+border-radius: 50%;
+color: #fff;
+text-align: center;
+line-height: 18px;
+font-size: 12px;
+font-weight: 700;
+}
+/* ===== 工具类 ===== */
+.text-muted {
+color: #86909c;
+}
+.mt-1 {
+margin-top: 4px;
+}
+.mb-1 {
+margin-bottom: 4px;
+}

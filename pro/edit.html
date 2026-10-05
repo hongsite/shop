@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>商品添加/编辑</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+
+<script src="/static/6.0.0.0/js/hstjq-ui.js?v=0.63696876144968"></script>
+<link rel="stylesheet" type="text/css" href="/pro/edit.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/pro/edit.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($addattr){
+<div class="attr-group" data-attr="${attrId}">
+<div class="attr-header">
+<span class="label-tag label-name">名称</span>
+<input type="text" placeholder="属性名称如颜色、尺码" class="attr-name hst-input" value="{$title}">
+<a href="javascript:;" class="add-value hst-btn hst-btn-ml marl20">添加规格值</a>
+<a href="javascript:;" class="remove-attr btn-delete marl20">×</a>
+</div>
+<div class="attr-values"></div>
+</div>
+
+}-->
+
+
+<!--foreach($pertylist){
+<div class="perty-group">
+<div class="input-wrap">
+<span class="label-tag label-name">名称</span>
+<input type="text" class="perty-name" name="perty_name[]" placeholder="属性名称" value="{$name}" />
+</div>
+<div class="input-wrap">
+<span class="label-tag label-val">值</span>
+<input type="text" class="perty-val" name="perty_val[]" placeholder="属性值" value="{$val}" />
+</div>
+<a href="javascript::" class="btn-delete perty-delete" aria-label="删除属性">×</a>
+</div>
+}-->
+
+<!--foreach($addvalue){
+<div class="attr-value">
+<span class="label-tag label-val">值</span>
+<input type="text" placeholder="如白色/黑色" class="hst-input attrvalue w200" value="{$title}" />
+<a href="javascript:;" class="remove-value"><i class="iconfont icon-close"></i></a>
+</div>
+}-->
+
+<!--foreach($mainpic){
+<li class="lilist"><img src="{$picurl|getpicurl=###,0,'','200','nopic.png'}" /><a href="javascript:;" class="myclose ztclose"></a><input type="hidden" name="picurl[]" class="picurl" value="{$picurl}" /><input type="hidden" name="picurlw[]" class="picurlw" value="{$width}" /><input type="hidden" name="picurlh[]" class="picurlh" value="{$height}" /></li>
+}-->
+
+<!--foreach($vo){
+<div class="card">
+<div class="card-title">基本信息<span class="badge">必填</span></div>
+<table class="form-table">
+<tbody>
+
+<tr>
+<td class="label-cell">
+<span class="required">*</span>商品名称</td>
+<td>
+<input type="text" class="hst-input w600" value="{$title}" name="title" placeholder="请输入商品名称" /><span class="hint">建议 10~60 字</span>
+</td>
+</tr>                     
+
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<div class="card-title">商品主图
+<span class="badge">最多 5 张</span>
+</div>
+<div id="mainpic"></div>
+</div>
+
+<div class="flex">
+
+<div class="flex-1">
+
+<div class="card">
+<div class="card-title">价格与库存
+<span class="badge">核心数据</span>
+</div>
+<table class="form-table">
+<tbody>
+<tr>
+<td class="label-cell">
+<span class="required">*</span>商品原价
+</td>
+<td>
+<div class="input-group">
+<input type="text" class="hst-input small" value="{$yprice|formatp=###}" name="yprice" placeholder="¥ 0.00" />
+<span class="text-muted ml10">建议设置高于销售价</span>
+</div>
+</td>
+</tr>
+<tr>
+	<td class="label-cell">
+		<span class="required">*</span> 销售价格
+	</td>
+	<td>
+		<div class="input-group">
+		<input type="text" class="hst-input small" value="{$price|formatp=###}" name="price" placeholder="¥ 0.00" />
+		<span class="text-muted ml10">当前售价</span>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td class="label-cell">
+		<span class="required">*</span> 库存
+	</td>
+	<td>
+		<div class="input-group">
+		<input type="text" class="hst-input small" value="{$stock}" name="stock" placeholder="0" />
+		<span class="text-muted ml10">可售数量</span>
+		</div>
+	</td>
+	</tr>
+	<tr>
+	<td class="label-cell">
+		<span class="required"></span> 已售
+	</td>
+	<td>
+		<div class="input-group">
+		<input type="text" class="hst-input small" value="{$saled}" name="saled" placeholder="0" />
+		<span class="text-muted ml10">已售数量</span>
+		</div>
+	</td>
+	</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="flex-1 ml10">
+<div class="card">
+<div class="card-title">分类与状态</div>
+<table class="form-table">
+<tbody>
+<tr>
+<td class="label-cell">
+<span class="required">*</span> 所属分类
+</td>
+<td>
+<div class="inline-select-group">
+{$cid|dics=###,catelist,'select','cid','<option value="">请选择</option>'}
+<span class="text-muted ml10">选择商品所属类目</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="label-cell">
+商品状态
+</td>
+<td>
+<div class="inline-select-group">
+{$stat|dics=###,prostatlist,'radio','stat'}
+<span class="text-muted ml10">上架后前台可见</span>
+</div>
+</td>
+</tr>
+
+
+<tr>
+	<td class="label-cell">
+		首页热门商品
+	</td>
+	<td>
+		<div class="inline-select-group">
+		{$isindexhot|dics=###,isindexlist,'radio','isindexhot'}
+		<span class="text-muted ml10">将在首页热门商品显示</span>
+		</div>
+	</td>
+</tr>
+
+<tr>
+	<td class="label-cell">
+		首页爆品抢购
+	</td>
+	<td>
+		<div class="inline-select-group">
+		{$isindexqg|dics=###,isindexlist,'radio','isindexqg'}
+		<span class="text-muted ml10">将在首页爆品抢购显示</span>
+		</div>
+	</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+
+<div class="card">        
+	<div class="flex aic card-header card-title">
+		<div class="flex-1">
+			商品属性 <span class="badge">选填</span>
+		</div>
+		<div class="flex-1 tr">
+			<button class="hst-btn hst-btn-ml" id="add-perty" type="button">＋ 添加属性</button>
+			<span class="text-muted">例：品牌</span>
+		</div>
+	</div>
+   
+	<div class="perty-grid" id="pertyGrid"></div>	
+	<div class="empty-hint" style="display:none;">
+		<span>暂无属性，点击「添加属性」创建</span>
+	</div>	
+	
+</div>
+
+
+<div class="card">
+<div class="card-title flex">
+<div class="flex-1">
+商品规格 & SKU<span class="badge ml10">选填</span>
+</div>
+<div class="flex-1 tr">
+<button class="hst-btn hst-btn-ml" id="add-attr" type="button">
+添加规格
+</button>
+<span class="text-muted ml10" style="font-size:13px;">例：颜色、尺寸、版本</span>
+</div>
+</div>
+<div class="sku-container">
+
+<div id="attr-container" class="attr-chips"></div>
+<div class="sku-table-wrap sku-grid" id="sku-list"></div>
+</div>
+</div>
+<input type="hidden" name="id" value="{$id}" />
+}-->
+
+<!--foreach($skulist){
+<input type="hidden" name="sku[]" value="{$i}" />
+<input type="hidden" name="title_{$i}" value="{$title}" />
+<div class="sku-card" data-sku="{$title}" data-i="{$i}" data-id="{$id}">
+<div class="sku-label">{$title}</div>
+<div>
+<span class="label-tag label-name">价格</span>
+<input type="number" class="sku-price hst-input" name="price_{$i}" value="{$price|formatp=###}" placeholder="0.00">
+</div>
+<div>
+<span class="label-tag label-val">库存</span>
+<input type="number" class="sku-stock hst-input" name="stock_{$i}" value="{$stock}" placeholder="0">
+</div>
+</div>
+
+}-->
+
+<!--moban-end-->
+
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+<div class="super-toolbar">	
+	<div class="mytabs" id="mytab">
+		<a href="javascript:;" class="cur" data-code="all">基本信息</a><a href="javascript:;" class="" data-code="payed">详情图</a>
+	</div>
+</div>
+
+<form id="myform" method="post" action="">
+<input type="file" id="ztupload" accept=".png,.jpg,.jpeg" style="display:none;" multiple="multiple" />
+<input type="file" id="filedesc" accept=".png,.jpg,.jpeg" style="display:none;" multiple="multiple" />
+<div class="page-wrapper"> 
+<div class="proeditbox" id="tbedit"></div>
+<div class="proeditbox none">
+<div class="proDesc">
+<div id="xqhtml" class="flex fww">
+</div>
+<a href="javascript:;" id="updesc" class="hst-btn hst-btn-ml">上传详情图</a>
+</div> 
+</div>
+</form>
+
+<p class="tl"><button type="button" class="hst-btn hst-btn-default mart20" id="mysubmit" data-update_name="_after_updates">提交保存</button></p>
+<button type="button" class="abso hst-btn hst-btn-default" style="top:6px;right:10px;" id="mysubmit1" data-update_name="_after_updates">提交保存</button>
+
+<script src="/static/6.0.0.0/js/sku.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/edit.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/mainpic.js?v=0.63696876144968"></script>
+<!--底部-->
+</div></div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+
+</body>
+</html>

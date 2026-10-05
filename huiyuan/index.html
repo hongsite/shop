@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>客户管理</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.63696876144968">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.63696876144968">
+
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.63696876144968" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script type="text/javascript" src="/static/6.0.0.0/js/hst-laydate.js?v=0.63696876144968"></script>
+<link rel="stylesheet" type="text/css" href="/huiyuan/index.css?v=0.63696876144968" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.63696876144968" />
+
+<script src="/api.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/huiyuan/index.js?v=0.63696876144968" type="text/javascript"></script>
+
+<script src="/common.js?v=0.63696876144968" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($list){
+<tr data-id="{$id}" class="mylist">
+<TD>{$id}</TD>
+<TD><a href="/business/?hid={$id}" target="_blank">{$company}</a></TD>
+<TD>{$lxr}</TD>
+<TD>{$lxdh}</TD>
+<TD><span class="w300 hoverhide" data-tip="{$remark}">{$remark}</span></TD>
+<TD><span class="w200 hoverhide" data-tip="{$djr}">{$djr}</span></TD>
+<TD>{$tjr}</TD>
+<TD><span class="w100 hoverhide" data-tip="{$proid|dics=###,proidlist,'write'}">{$proid|dics=###,proidlist,'write'}</span></TD>
+<TD class="cz">
+	<a href="/huiyuan/edit.html?id={$id}" target="_blank" class="edit" data-id="{$id}">编辑</a>
+	<a href="javascript:;" data-id="{$id}" class="delete mydelete">删除</a>
+</TD>	
+</TR>
+}-->
+
+<!--foreach($filelist){
+<a href="javascript:;" class="myfile {if($isadd==1)}yesaddfile{/if}" title="{$oldfilename}" data-oldfilename="{$oldfilename}" data-filename="{$filename}" data-id="{$id}" data-isadd="{$isadd}">
+<div>{if($isadd==0)}<input type="hidden" name="fileid[]" value="{$id}" />{/if}<img src="{if($ispic==1)}{$filename}_200.jpg{else}{$ext}.png{/if}" alt="{$oldfilename}" class="{if($isadd==1)}addfile{/if}" />
+{if($isadd==1)}上传附件{else}{/if}
+</div>
+{if($isadd==0)}<span>x</span>{/if}
+</a>
+}-->
+
+
+<!--foreach($poclist){
+<li data-id="{$id}" data-truename="{$truename}"><span class="">{$truename} {$mobile}</span></li>
+}-->
+
+<!--foreach($chooselist){
+<div class="file-list">
+<div class="file-item" data-index="0">
+<div class="file-info">
+<div class="file-name" title="{$name}">{$name}</div>
+<div class="file-size">{$filesize}</div>
+</div>
+<button class="file-remove" data-index="0" type="button" title="移除文件" id="removefile">✕</button>
+</div>
+</div>
+}-->
+
+<!--moban-end-->
+
+<div id="tipbox" class="none"></div>
+
+<div id="openbox_dump" class="openboxs flex fdc aic jcc none" style="z-index:991;">
+	<div class="opensubbox">
+		<span class="hst-setwin"><a class="hst-ico hst-close1" href="javascript:;"></a></span>
+		<div class="openboxs-title">批量导入</div>
+		<div class="openboxs-cont" style="padding:20px;">
+		    <form method="post" name="myform_dump" id="myform_dump" action="">
+			<div class="tc padmain tc drop-zone" id="myfile_dump">
+				<span class="upload-icon"><i class="iconfont icon-jinhuo"></i></span>
+				<div class="tc">请严格按根据模板来导入,否则数据会导入失败</div>
+			</div>
+			<div id="chooselist"></div>
+			<input type="file" id="uploadfile_dump" class="none" accept=".xlsx" />		
+			</form>
+			<div class="tc mt20"><a href="javascript:;" id="mysubmit_dump" class="hst-btn hst-bg-green">确定导入</a><a href="javascript:;" target="_blank" class="ml10" id="downmoban">模板下载</a></div>
+		</div>
+	</div>
+</div>
+
+
+<div id="openbox_choosehead" class="openboxs flex fdc aic jcc none" style="z-index:991;">
+	<div class="opensubbox">
+		<span class="hst-setwin"><a class="hst-ico hst-close1" href="javascript:;"></a></span>
+		<div class="openboxs-title">请选择一个对接人</div>
+		<div class="openboxs-cont">
+		    <div class="poclist">
+				<input type="text" value="" class="hst-input search w100" id="qs" placeholder="输入关键字搜索" /><button type="button" class="hst-btn hst-btn-xx searchbtn mr10" id="searchs">搜索</button>
+				<ul class="flex fww" id="poclist"></ul>
+				<div class="tc mt10"><a href="javascript:;" id="choosesubmit" class="hst-btn hst-bg-green">确定</a></div>
+			</div>			
+		</div>
+	</div>
+</div>
+
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+	<div id="mytab" class="flex-3 mytabs">
+		<a href="javascript:;" class="cur" data-code="all">所有客户</a>
+		<a href="javascript:;" data-code="myremark">有备注</a>			
+	</div>
+	<div class="flex-1 fr addmenu">
+		<a href="/huiyuan/edit.html?id=0" target="_blank" class="hst-badge add" data-id="0">新增客户信息</a>
+		<a href="javascript:;" class="ml10 hst-badge" id="mydump" data-id="0"><i class="iconfont icon-xls"></i>批量导入客户</a>
+	</div>
+	<div class="flex-2 tr">
+	<input type="text" value="" class="hst-input search w100" id="q" placeholder="输入关键字搜索" /><button type="button" class="hst-btn hst-btn-xx searchbtn" id="search">搜索</button>
+	<a href="javascript:;" id="refer">刷新</a>
+</div>
+
+</div>
+
+<TABLE class="tblist" id="tblist">
+<TR bgcolor="#ffffff" class="noh">
+<!--<th width="40" class="tc"><span class="checkbox"><label><input type="checkbox" value="" id="all" /></label></span></th>-->
+<TH width="50">编号</TH>
+<TH>公司名称</TH>
+<TH width="80">联系人</TH>
+<TH width="100">联系电话</TH>
+<TH width="300">备注</TH>
+<TH width="200">对接人</TH>
+<TH width="100">推荐人</TH>
+<TH width="100">客户标签</TH>
+
+<TH class="tc" width="160">操作</TH>
+</TR>
+</TABLE>
+<div class="nodata" id="nodata"></div>
+<div class="page" id="page"></div>
+</div>
+<script src="/static/6.0.0.0/js/after_index_update.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/page.js?v=0.63696876144968"></script>
+<script src="/static/6.0.0.0/js/edit.js?v=0.63696876144968"></script>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+<script>
+$(document).ready(function(){
+	$('#mydump').click(function() {
+        $('#openbox_dump').removeClass('none');
+    });
+	
+	$('#myfile_dump').live('click', function(e){		
+		$('#uploadfile_dump').click();		
+    });
+	$('#uploadfile_dump').live('change',function(){
+		var fileInput = $('#uploadfile_dump').get(0);
+		var files = fileInput.files;
+		var file = files[0];
+		var filesize = getfilesize(file.size);
+		var name = file.name;
+		var html = getmbhtml('chooselist',[{filesize:filesize,name:name}]);
+		$('#chooselist').html(html);
+	});
+	$('#removefile').live('click', function(e){
+		document.getElementById('myform_dump').reset();
+		$('#chooselist').html('');		
+    });
+	$('#mysubmit_dump').click(function() {
+        var fileInput = $('#uploadfile_dump').get(0);
+		var files = fileInput.files;
+		const maxFiles = 5;
+		var allowedExts = ['xlsx'];
+		var filenums = files.length;	
+
+		if(filenums<1){
+			layer.msg('请选择一个文件');
+			return ;
+		}		
+		// 遍历所有文件进行上传
+		var file = files[0];
+		// 获取文件扩展名
+		var ext = file.name.split('.').pop().toLowerCase();
+		if (!allowedExts.includes(ext)) {
+			layer.msg('格式不正确，请上传 ' + allowedExts.join('|') + ' 格式的文件');
+			return;
+		}
+		if(file.size>102400*50){
+			layer.msg( '不能上传大于5M的文件',{icon:2});
+			return ;
+		}		
+		
+		var file = files[0];
+		let fd = new FormData();
+		fd.append('fileToUpload',file);	
+		fd.append('path','pic1');					
+		upload_excel(file,fd,'_after_upload_dump');
+    });
+});
+</script>
+
+</body>
+</html>

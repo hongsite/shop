@@ -1,0 +1,49 @@
+/* 分类卡片网格：一行多个自适应 */
+body{background: #f4f6f9;}
+.cate-grid{
+display: grid;
+/* 大屏4列，自动适配 */
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap:10px;
+}
+.cate-card{
+background:#fff;
+border-radius:8px;
+padding:18px;
+box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.cate-top{
+display:flex;
+gap:12px;
+align-items:center;
+margin-bottom:16px;
+}
+.cate-icon{
+width:64px;
+height:64px;
+background:#e8f3ff;
+border-radius:6px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#1677ff;
+font-size:20px;
+margin-right:10px;
+}
+.cate-icon i{font-size:36px;}
+.cate-info h3{
+font-size:16px;
+color:#222;
+margin-bottom:4px;
+}
+.cate-info .count{
+font-size:13px;
+color:#888;
+}
+.title-input{
+width: 100%;
+border: none;
+border-bottom: 1px solid #ddd;
+background: transparent;
+padding:6px 6px;margin-bottom:6px;
+}

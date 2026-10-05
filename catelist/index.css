@@ -1,0 +1,93 @@
+/* ===== 卡片网格 ===== */
+.grid-container {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+gap:10px;
+}
+
+/* ===== 分类图标卡片 ===== */
+.icon-card {
+background: #fff;
+border-radius: 14px;
+padding:10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+border: 1px solid #f0f2f5;
+transition: all 0.25s ease;
+text-align: center;
+position: relative;
+}
+img.preview{width:90px;height:90px;}
+.title-input{
+   width: 100%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    padding:6px 6px;
+}
+.image-box{height:90px;}
+.icon-card .icon-img {
+width: 48px;
+height: 48px;
+border-radius: 12px;
+object-fit: cover;
+background: #f5f7fa;
+border: 1px solid #e5e8ef;
+flex-shrink: 0;
+margin-bottom: 10px;
+}
+.icon-card .icon-img-placeholder {
+width: 48px;
+height: 48px;
+border-radius: 12px;
+background: #f0f2f5;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #bcc3ce;
+font-size: 20px;
+margin-bottom: 10px;
+border: 1px dashed #d9dde3;
+}
+.icon-card .icon-name {
+font-weight: 600;
+font-size: 15px;
+color: #1d2129;
+margin-bottom: 4px;
+width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.icon-card .icon-link {
+color: #86909c;
+word-break: break-all;
+background: #f7f8fa;
+padding: 6px 10px;
+border-radius: 6px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+margin-bottom: 10px;
+font-family: 'SF Mono', monospace;
+}
+.icon-card .icon-link input {
+background:none;text-align:left;width:100%;
+}
+.icon-card .card-footer {
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-top: 1px solid #f0f2f5;
+padding-top: 10px;
+margin-top: auto;
+color: #86909c;
+}
+.icon-card .status-tag {
+padding: 2px 10px;
+border-radius: 12px;
+font-weight: 500;
+background: #e8f5e9;
+color: #00b42a;
+}
+.card-actions a:last-of-type{margin-left:10px;}
