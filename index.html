@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="牛头网">
+<meta name="description" content="牛头网">
+<link rel="icon" href="data:;base64,=" />
+
+<title>站点名称</title>
+<!--通用css-->
+<meta content="telephone=no,email=no,address=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="wap-font-scale" content="no" />
+<meta name="frontend-mobile" content="yes" />
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/skins/common.css?v=0.820769986603409">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/iconfont/iconfont.css?v=0.820769986603409">
+<link rel="stylesheet" type="text/css" href="/static/6.0.0.0/default/skins/common.css?v=0.820769986603409">
+
+<link href="/static/6.0.0.0/skins/nchars.css?v=0.820769986603409" rel="stylesheet" type="text/css">
+<!--通用js1-->
+<script src="/static/6.0.0.0/js/hst.js?v=0.820769986603409" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/main.js?v=0.820769986603409" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun.js?v=0.820769986603409" type="text/javascript"></script>
+<script src="/static/6.0.0.0/js/fun-big.js?v=0.820769986603409" type="text/javascript"></script>
+
+<script src="/static/6.0.0.0/js/nchars.js?v=0.820769986603409"></script>
+<script src="/static/6.0.0.0/js/nchars-round.js?v=0.820769986603409" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/index/index.css?v=0.820769986603409" />
+<link rel="stylesheet" type="text/css" href="/common.css?v=0.820769986603409" />
+
+<script src="/api.js?v=0.820769986603409" type="text/javascript"></script>
+
+<script src="/index/index.js?v=0.820769986603409" type="text/javascript"></script>
+
+<script src="/common.js?v=0.820769986603409" type="text/javascript"></script>
+</head>
+<body>
+<!--moban-begin-->
+<!--foreach($orderlist){
+<li>
+<div class="order-main">
+<p class="order-title">{$title}</p>
+<p class="order-sn">.{$ordid} · {$addtime|date=###}</p>
+</div>
+<div class="order-buyer">
+<span class="buyer-label">收货人</span>
+<span class="buyer-name">{$truename}</span>
+<span class="buyer-phone">{$mobile}</span>
+</div>
+<div class="order-amount">¥ {$payprice|formatp=###}</div>
+<div class="">{$stat|dics=###,statlist,'write'}</div>
+</li>
+}-->
+
+<!--foreach($tjlist){
+<li>
+<div class="">
+<p>{$title}</p>
+<p>{$value|formatp=###,0}</p>
+<label></label>
+<span></span>
+<em></em>
+<i></i>
+</div>
+</li>
+}-->
+
+
+<!--foreach($paihanglist){
+<li>
+<span class="goods-rank rank-1">{$key+1}</span>
+<div class="goods-info">
+<p class="goods-name">{$title}</p>
+<p class="goods-meta">¥{$price|formatp=###,0}</p>
+</div>
+<div class="goods-sales">{$nums|formatp=###,0}</div>
+</li>
+}-->
+<!--moban-end-->
+
+<!--头部-->
+<!--加载动画-->
+<div class="loading" id="loading">
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+<p>正在加载中</p>
+</div>
+
+<div class="menu-box">
+<div class="menu-left" id="menu-left">
+	<img src="/static/images/shop/logo.png" class="menu-left-logo" />
+	<ul class="menu">
+	<li class="" data-module="Index">
+		<div class="link" style="padding-bottom:0;padding-left:0;"><a href="/"><i class="iconfont icon-shouye"></i>系统首页</a></div>
+	</li>	
+	<li class="cur">
+		<div class="link"><a href="javascript:void(0);"><i class="iconfont icon-shop"></i>商城系统</a></div>
+		<dd class="submenu">
+			<dl class="" data-module="Orders"><a href="/orders/">销售订单</a></dl>
+			<dl class="" data-module="OrdersAgent"><a href="/ordersagent">分销订单</a></dl>
+			<dl class="" data-module="Pro"><a href="/pro/">产品管理</a></dl>
+			<dl class="" data-module="Member"><a href="/member/">注册会员</a></dl>			
+			<dl class="" data-module="Cate" data-field="field" data-value="Pro"><a href="/cate/?field=Pro">商品分类</a></dl>
+			<dl class="" data-module="Focus"><a href="/focus/">焦点图片</a></dl>
+			<dl class="" data-module="Catelist"><a href="/catelist/">分类图标</a></dl>
+			<dl class="" data-module="Website"><a href="/website/">站点设置</a></dl>
+			<dl class="" data-module="Package"><a href="/package/">充值套餐</a></dl>
+			<dl class="" data-module="Modify"><a href="/modify/">修改资料</a></dl>
+			<dl class="" data-module="Modifypwd"><a href="/modifypwd/">登录密码</a></dl>
+		</dd>
+	</li>
+		
+</ul>
+</div>
+<div class="menu-right" id="menu-right">
+
+	<div class="super-toolbar">	
+	<div class="mytabs">
+		<a href="javascript:;" class="cur" data-code="all">站点名称 · 设备总览</a>
+	</div>
+	<div class="tr">
+		<div class="user-info">
+			<div class="user-avatar">管</div>
+			<div class="user-detail">
+				<div class="user-account"><span id="username"></span><span class="badge-admin">管理员</span></div>				
+			</div>
+		</div>		
+	</div>
+	<div class="tr">
+		<a href="javascript:;" id="logout"><i class="iconfont icon-logout"></i>退出登录</a>
+    </div>
+</div>		
+<ul class="flex fww" id="indextop"></ul>
+<div class="flex mt10">
+	<div class="flex-2 mr10 bgwhite bordius10">
+		<div class="mytit" style="border-bottom:none;">销量统计</div>
+		<div id="sale" class="bar-chart"></div>
+	</div>
+	<div class="flex-1 bgwhite bordius10">
+		<div class="mytit">待加数据</div>
+		<div class="chart-wrap" id="chart1"></div>
+	</div>
+</div>
+<div class="flex mt10">
+	<div class="flex-2 mr10 bgwhite bordius10">
+		<div class="mytit">最新订单</div>
+		<div class="">
+		    <ul class="order-list" id="orderhtml"></ul>
+		</div>
+	</div>
+	<div class="flex-1 bgwhite bordius10">
+		<div class="mytit">热销商品 Top 10</div>
+		<div class="contbox" style="height:300px;padding-bottom:10px;" id="sblist">
+		    <!-- ========== 热销商品 Top 10 ========== -->			
+				
+			<ul class="goods-list" id="hotGoods"></ul>
+		</div>
+	</div>
+</div>
+<div class="blank10"></div>
+<!--底部-->
+</div></div>
+<!--通用底部js脚本-->
+<script>
+$(document).ready(function(){	
+	$('#menu-left li').click(function(){
+		if($(this).hasClass('cur')){
+			$(this).removeClass('cur');
+		}else{
+			$('#leftmenu li').removeClass('cur');
+			$(this).addClass('cur');
+		}
+	});	
+	/*$('#menu-left li').each(function(){
+		let obj = $(this);		
+	    $(this).find('dl').each(function(){
+			let field = $(this).data('field') || '';
+			let value = $(this).data('value') || '';
+		    if(($(this).data('module')==Config.module && field=='') || ($(this).data('module')==Config.module && field!='' && get(field)==value)){
+				$(this).addClass('cur');
+				obj.addClass('cur');
+			}
+		});
+	});*/
+});
+</script>
+
+
+</body>
+</html>
