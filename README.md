@@ -231,10 +231,13 @@ mysql -u root -p < sql/init.sql
 
 ## License
 
-[MIT](LICENSE) © 项目作者
+ © 项目作者
 
----
+- 作者：牛头
+- 邮箱：506423665@qq.com
+- 官网：https://www.hongsite.com.com
+- 微信号：hongsite
 
-## niutou 支持
+## 牛头 支持
 
-如果本框架对你有帮助，欢迎 **niutou ⭐** 支持。
+如果本框架对你有帮助，欢迎 **牛头 ⭐** 支持。
