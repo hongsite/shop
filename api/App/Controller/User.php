@@ -5,10 +5,6 @@ class User extends Common{
 	function _init(){
 		parent::_init();
 	}
-	private function loaduserinfo($uid=0){
-		$vo = D('User')->getValue($uid);
-	}	
-
 	public function getorder_json(){		
 		$uid = getuid();	
 		$userinfo = D('Member')->getValue($uid);
