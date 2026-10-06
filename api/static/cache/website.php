@@ -1,7 +1,7 @@
 <?php
 /*Website缓存数据*/
 $arr_tmp['id']='1';
-$arr_tmp['website']='鸿思特商城';
+$arr_tmp['website']='鸿思甄选';
 $arr_tmp['beian']='';
 $arr_tmp['url']='';
 $arr_tmp['wx_appid']='';

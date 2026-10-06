@@ -217,6 +217,7 @@ class Common extends Controller{
         if ($nowpage > 100) {
             $nowpage = 100;
         }
+		$js['perpage'] = $this->perpage;
         $limit = (($nowpage - 1) * $this->perpage) . ',' . $this->perpage;
 
         // 查询

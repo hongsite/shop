@@ -18,7 +18,6 @@ class Pro extends Common{
 		$this->allowupdate = true;
 		$this->allowdelete = true;
 
-
 		$searinfo[] = array('field'=>'title','afield'=>'`A1`.','isnumeric'=>0,'type'=>'like');
 		$this->seararr=$searinfo;
 	}	
@@ -79,13 +78,7 @@ class Pro extends Common{
 	function _before_index(){
 		$rt['allnums'] = 0;
 		$rt['waitpaynums'] = 0;
-		$rt['successums'] = 0;
-
-		$this->noload = 1;
-
-		$this->tb = 'Pro';
-
-		
+		$rt['successums'] = 0;		
 
 		$code = I('code',0);
 		$tid = I('tid',1);
@@ -125,7 +118,7 @@ class Pro extends Common{
 		$pid = I('pid',1,'');		
 		$cid = I('cid',1,'');
 		$this->where=$where;
-		$this->perpage = 10;
+		$this->perpage = 12;
 	}
 	function stat_json(){
 		$uid = $this->uid;

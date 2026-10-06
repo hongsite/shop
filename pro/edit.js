@@ -209,6 +209,18 @@ function edit_render_after(data){
 
 	$('#pertyGrid').html(pertyhtml);
 
+	var $box = window.Kodo('#mainpicul').sortable({
+		items: '.lilist',
+		placeholder: 'placeholder',
+		threshold: 3,
+		animation: 180,       // 动画时长，0 关闭
+		easing: 'cubic-bezier(0.2, 0, 0, 1)'
+	});
+
+	/*$box.on('sortstart', function (e, ui) { console.log('start'); });
+	$box.on('sort',      function (e, ui) { console.log('sort'); });
+	$box.on('sortstop',  function (e, ui) { console.log('stop'); });*/
+
 	getlist(Config.adminurl+'loadxqpic_json&id='+id,'_after_loadxqpic');
 
 	sid = rt.sid || 0;
