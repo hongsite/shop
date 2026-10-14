@@ -169,7 +169,14 @@ class Logistics{
 		}		
 		
 		// 配置信息
-		$appcode = '5ace5a0489e740f99b795b6f2eddcc46';
+		$website = loadcache(2);		
+		// 配置信息
+		$appcode = $website['appcode'] ?? '';
+
+		if ($appcode=='' || strlen($appcode)<10) {
+			$result['msg'] = '还没有填写接口号';
+			return $result;
+		}
 		$baseUrl = 'https://kzexpress.market.alicloudapi.com/api-mall/api/express/query';
 		
 		// 构建请求URL
